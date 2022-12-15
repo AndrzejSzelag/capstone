@@ -1,0 +1,28 @@
+<!-- .html file containing modal, trigger elements and script instantiating modalForms -->
+
+<!-- Modal 1 with id="create-modal" -->
+<div class="modal fade" id="create-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+
+<!--
+Define the Bootstrap modal window and html element triggering modal opening.
+
+Single modal can be used for multiple modalForms in single template.
+When using multiple modals on the same page each modal should have unique id and the same value
+should also be set as modalID option when instantiating modalForm on trigger element.
+Trigger element (id="create" etc) is used for instantiation of modalForm.
+Any element can be trigger element as long as modalForm is bound to it.
+Click event on trigger element loads form’s html from within <div class="modal-content"></div>
+and sets action attribute of the form to formURL.
+-->
+
+<!-- Modal 2 with id="modal" -->
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content"></div>
+    </div>
+</div>

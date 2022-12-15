@@ -1,0 +1,59 @@
+{% load widget_tweaks %}
+
+<div class="small">
+    <div class="modal-header bg-light">
+        <h4 class="modal-title font-weight-bolder">Project Details</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><i class="lni lni-cross-circle"></i></span>
+        </button>
+    </div>
+
+    <div class="modal-body bg-light small">
+        <div class="mt-3">
+            <div class="small border-bottom">ID:</div>
+            <div class="small font-weight-bolder">{{ projects.id }}</div>
+        </div>
+        <div class="my-3">
+            <div class="small border-bottom">Title:</div>
+            <div class="small font-weight-bolder">{{ projects.title }}</div>
+        </div>
+        <div class="my-3">
+            <div class="small border-bottom">Author:</div>
+            <div class="small font-weight-bolder">{{ projects.author }}</div>
+        </div>
+        <div class="my-3">
+            <div class="small border-bottom">Description:</div>
+            <div class="small font-weight-bolder">{{ projects.description }}</div>
+        </div>
+        <div class="my-3">
+            <div class="small border-bottom">URL Requirements:</div>
+            {% if projects.requirements %}
+            <a href="{{ projects.requirements }}" class="small links" title="Go to Requirements" target="_blank">{{ projects.requirements }}</a>
+            {% else %}
+            <div class="small"><em>No link to the requirements</em></div>
+            {% endif %}
+        </div>
+        <div class="my-3">
+            <div class="small border-bottom">Technologies:</div>
+            <div class="small font-weight-bolder">{{ projects.technology }}</div>
+        </div>
+        <div class="my-3">
+            <div class="small border-bottom">URL Video:</div>
+            {% if projects.video %}
+            <a href="{{ projects.video }}" title="Show Video" class="small links" target="_blank" class="play-btn" data-vbtype="video"
+               data-autoplay="true">{{ projects.video }}</a>
+            {% else %}
+            <div class="small"><em>No link to the video</em></div>
+            {% endif %}
+
+
+        </div>
+
+    </div>
+
+    <div class="modal-footer bg-light">
+        <button type="button" class="btn btn-block btn-sm btn-secondary" data-dismiss="modal"><span
+                class="lni lni-checkmark mr-1"></span>Close
+        </button>
+    </div>
+</div>

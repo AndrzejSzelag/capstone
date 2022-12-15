@@ -1,0 +1,39 @@
+{% load widget_tweaks %}
+<div class="small">
+    <form method="post" action="">
+        {% csrf_token %}
+
+        <div class="modal-header bg-light">
+            <h4 class="modal-title font-weight-bolder">Edit Project</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="lni lni-cross-circle"></i></span>
+            </button>
+        </div>
+
+        <div class="modal-body bg-light small">
+
+            <div class="{% if form.non_field_errors %}invalid{% endif %} mb-2">
+                {% for error in form.non_field_errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+
+            {% for field in form %}
+            <div class="form-group">
+                <!--<label class="mb-1 small" for="{{ field.id_for_label }}">{{ field.label }}</label>-->
+                {% render_field field class="form-control" placeholder=field.label %}
+                <div class="{% if field.errors %} invalid{% endif %} my-1">
+                    {% for error in field.errors %}
+                    <p class="required">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="modal-footer bg-light">
+            <button type="button" class="submit-btn btn btn-block btn-sm btn-secondary"><span class="lni lni-checkmark mr-1"></span>Update</button>
+        </div>
+
+    </form>
+</div>

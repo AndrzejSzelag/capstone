@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--The default character for HTML5 -->
+    <meta charset="UTF-8">
+    <!-- Control the page's dimensions and scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>ePortfolio</title>
+    {% endblock title %}
+    {% load static %}
+    <!-- Favicon: Python icon -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/images/python.ico' %}"/>
+    {% block stylesheets %}
+    <!-- CSS Files: Bootstrap5 + Lineicons2 -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap-5.0.5-alpha.min.css' %}">
+    <!-- Font CSS: Lineicons2 -->
+    <link rel="stylesheet" href="{% static 'assets/css/LineIcons.2.0.css' %}">
+    <!-- My CSS style -->
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+    {% endblock stylesheets %}
+</head>
+
+<body>
+
+<!--============ Header + NavBar ============-->
+{% block header_navbar %}
+<header>
+    <div id="header_navbar" class="header_navbar sticky">
+        <!-- Show and hide message -->
+        <div class="main_message small">
+            {% if messages %}
+            {% for message in messages %}
+            <div {% if message.tags %}
+                 class="small alert alert-{{ message.tags }} m-0" role="alert"
+                 {% endif %}>
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <!-- Main container with navbar menu -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="navbar-brand">ePortfolio</div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul id="nav" class="navbar-nav mr-auto">
+                                {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="page-scroll active" href="#home">About Me</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="#projects">My Projects</a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="page-scroll active" href="#home">About Me</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="#projects">My Projects</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                            <div>
+                                {% if user.is_authenticated %}
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <span class="d-flex justify-content-end">You are logged in as&nbsp;<strong
+                                                style="color: #c82333">{{ user.username }}</strong>&nbsp;</span>
+                                    </li>
+                                    <li class="nav-item d-flex justify-content-end">
+                                        <a id="logout-btn" href="{% url 'logout' %}">Sign Out</a>
+                                    </li>
+                                </ul>
+                                {% else %}
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item d-flex justify-content-end">
+                                        <a id="login-btn" href="#login">Sign In</a>
+                                    </li>
+                                    <li class="nav-item d-flex justify-content-end">
+                                        <a id="signup-btn" href="#signup">Register</a>
+                                    </li>
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div><!-- container -->
+    </div>
+</header>
+{% endblock header_navbar %}
+
+<!--=========== Content of Pages ===========-->
+{% block body %}
+<div class="col-12">
+    {% block content %}{% endblock content %}
+</div>
+{% endblock body %}
+
+<!--============ Scripts JS ============-->
+{% block js %}
+<script src="{% static 'assets/js/index.js' %}"></script>
+<!--
+Include Bootstrap, jQuery and jquery.bootstrap.modal.forms.js on every page where you would like to set up the AJAX
+driven Django forms in Bootstrap modal.
+-->
+<script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.bootstrap.modal.forms.js' %}"></script>
+{% endblock js %}
+{% block extrascripts %} {% endblock extrascripts %}
+
+</body>
+</html>

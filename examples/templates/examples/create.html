@@ -1,0 +1,49 @@
+{% load widget_tweaks %}
+
+<!--
+    Bootstrap modal elements are used in this example.
+    Button triggering the submission should have type attribute set to "button" and not "submit".
+    Add class="submit-btn" or custom submitBtn class to this button.
+    Form will POST to formURL.
+    Add class="invalid" or custom errorClass to the elements that wrap the fields.
+    class="invalid" acts as a flag for the fields having errors after the form has been POSTed.
+-->
+
+<div class="small">
+    <form method="post" action="">
+        {% csrf_token %}
+        <div class="modal-header bg-light">
+            <h4 class="modal-title font-weight-bolder">Create Project</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="lni lni-cross-circle"></i></span>
+            </button>
+        </div>
+
+        <div class="modal-body bg-light small">
+
+            <div class="{% if form.non_field_errors %}invalid{% endif %} mb-1">
+                {% for error in form.non_field_errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+
+            {% for field in form %}
+            <div class="form-group">
+                <!--<label class="mb-1" for="{{ field.id_for_label }}">{{ field.label }}</label>-->
+                {% render_field field class="form-control" placeholder=field.label %}
+                <div class="{% if field.errors %} invalid{% endif %} my-2">
+                    {% for error in field.errors %}
+                    <p class="required">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="modal-footer bg-light">
+            <button type="button" class="submit-btn btn btn-block btn-sm btn-secondary">
+                <span class="lni lni-checkmark mr-1"></span>Create
+            </button>
+        </div>
+    </form>
+</div>

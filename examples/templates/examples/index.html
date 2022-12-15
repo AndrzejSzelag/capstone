@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% extends "examples/base.html" %}
+    {% load static %}
+    {% block title %}
+    <title>ePortfolio</title>
+    {% endblock title %}
+</head>
+
+<body>
+{% block content %}
+
+{% include "examples/modal.html" %}
+
+<!-- ==================== About Me ==================== -->
+
+<section id="home" class="about-me">
+    <div class="container">
+
+        <img class="avatar img-fluid" src="{% static 'assets/images/as.jpg' %}" alt="Andrzej Szeląg"
+             title="Andrzej Szeląg">
+
+        <div class="col-12 mx-auto">
+            <div class="about-content">
+                <h1 class="my-3">About Me</h1>
+                <h3 class="my-5">Thank you for visiting my <strong>ePortfolio</strong>!</h3>
+                <h4 class="my-5">I am a beginner programmer from Poland. <i
+                        class="lni lni-python mr-1"></i><strong>Python</strong>
+                    is my favourite programming language. I am currently finishing <strong>&bdquo;CS50's Web
+                        Programming with Python and JavaScript&rdquo;</strong> <a class="links"
+                                                                                  href="https://online-learning.harvard.edu/course/cs50s-web-programming-python-and-javascript?delta=0"
+                                                                                  target="_blank" title="Go to course">course</a>
+                    from <strong>Harvard University</strong>.
+                    It is my sixth and the final project of this course. All details
+                    previous projects you find <a class="links" href="#projects" title="Go to projects">here</a>.
+                </h4>
+                <h4 class="mt-5 mb-3 font-weight-bolder">About Course</h4>
+                <h4>This course diving more deeply into the design and implementation of web applications with
+                    <strong>Python</strong>, <strong>JavaScript</strong>, and <strong>SQL</strong> using
+                    frameworks like <strong>Django</strong>, <strong>React</strong>, and
+                    <strong>Bootstrap</strong>.
+                </h4>
+                <h4 class="mt-5 mb-3 font-weight-bolder">Course Description</h4>
+                <h4>Topics include <strong>database design</strong>, <strong>scalability</strong>,
+                    <strong>security</strong>,
+                    and <strong>user experience</strong>. Through hands-on projects, you'll learn to write and
+                    use APIs, create interactive UIs, and leverage cloud services like <strong>GitHub</strong>
+                    and <strong>Heroku</strong>. By course's end, you'll emerge with knowledge and experience in
+                    principles, languages, and tools that empower you to design and deploy applications on the
+                    Internet.
+                </h4>
+                <div class="mt-5 d-flex justify-content-end">
+                    <div>
+                        <h4>Andrzej Szelag</h4>
+                        <div class="social-links">
+                            <a href="https://www.youtube.com/channel/UCdXprXor_RWV26GMvP7VaPg?view_as=subscriber"
+                               target="_blank" title="Go to YouTube">
+                                <i class="lni lni-youtube"></i>
+                            </a>
+                            <a href="https://github.com/AndrzejSzelag" target="_blank" title="Go to GitHub">
+                                <i class="lni lni-github-original"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/andrzej-szel%C4%85g-91460b257/" target="_blank"
+                               title="Go to LinkedIn">
+                                <i class="lni lni-linkedin-original"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== My Projects ==================== -->
+
+<section id="projects" class="my-projects">
+    <div class="container">
+        <div class="col-12 mx-auto">
+            <div class="projects-content">
+                <h1 class="mt-2 mb-4">My Projects
+                    {% if request.user.is_authenticated == True %}
+                    <span class="projects-links d-flex justify-content-end">
+                        <!-- Add New Project button -->
+                        <button id="create" class="btn btn-sm btn-white" type="button" name="button">
+                            <strong><span class="lni lni-circle-plus mr-1"></span>Add New Project</strong>
+                        </button>
+                    </span>
+                    {% endif %}
+                </h1>
+                <div class="row" id="accordion">
+                    <div class="col-12 mx-auto">
+                        <div class="my-projects-accordion accordion-style accordion-content">
+
+                            {% for projects in projects %}
+                            <div class="accordion my-2" id="accordionExample{{ projects.id }}">
+                                <div class="single-accordion">
+                                    <div class="accordion-btn">
+                                        <button class="btn-block text-left collapsed" type="button"
+                                                title="Show/Hide details of the project" data-toggle="collapse"
+                                                data-target="#collapse{{ projects.id }}" aria-expanded="true"
+                                                aria-controls="collapse{{ projects.id }}">
+                                                <span class="h6 my-2 font-weight-bolder">
+                                                    <i class="lni lni-customer mr-1"
+                                                       title="Project Name"></i>{{ projects.title }}</span>
+                                            <br>
+                                            <span class="font-weight-bold text-secondary"><i
+                                                    class="lni lni-postcard mr-1"
+                                                    title="Project Description"></i>{{ projects.description }}</span>
+                                        </button>
+                                    </div>
+                                    <div id="collapse{{ projects.id }}" class="collapse"
+                                         aria-labelledby="heading{{ projects.id }}"
+                                         data-parent="#accordionExample{{ projects.id }}">
+
+                                        <!-- Video + Details -->
+                                        <section id="project_detail" class="project_detail">
+                                            <div class="container">
+                                                <div class="row">
+                                                    {% if projects.video %}
+                                                    <div class="col-lg-4 video-box">
+                                                        <a href="{{ projects.video }}" title="Show Video"
+                                                           target="_blank" class="play-btn" data-vbtype="video"
+                                                           data-autoplay="true"></a>
+                                                    </div>
+                                                    {% else %}
+                                                    <div class="col-lg-4 video-box">
+                                                        <div class="mt-5 text-center">No video
+                                                            <h1><i class="mt-4 lni lni-ban"></i></h1>
+                                                        </div>
+                                                    </div>
+                                                    {% endif %}
+                                                    <div class="col-lg-8 d-flex flex-column justify-content-center project_detail_content">
+                                                        <div class="details-title">
+                                                            <h3>Requirements & Technologies</h3>
+                                                        </div>
+
+                                                        {% if projects.requirements %}
+                                                        <div class="icon-box">
+                                                            <div class="icon"><i class="lni lni-comments-alt"></i>
+                                                            </div>
+                                                            <h4 class="title">Requirements</h4>
+                                                            <div class="accordion-link description">
+                                                                <a href="{{ projects.requirements }}"
+                                                                   title="Go to Requirements" target="_blank">Show
+                                                                    Requirements</a>
+                                                            </div>
+                                                        </div>
+                                                        {% else %}
+                                                        <div class="icon-box">
+                                                            <div class="icon"><i class="lni lni-comments-alt"></i>
+                                                            </div>
+                                                            <h4 class="title">Requirements</h4>
+                                                            <div class="accordion-link description">
+                                                                No link to the requirements
+                                                            </div>
+                                                        </div>
+                                                        {% endif %}
+                                                        <br>
+                                                        <div class="icon-box">
+                                                            <div class="icon"><i class="lni lni-cog"></i></div>
+                                                            <h4 class="title">Technologies</h4>
+                                                            <div class="description">{{ projects.technology }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+<!--
+Within the for loop in .html file the data-form-url attribute of each Update, Read and Delete button should be set
+to relevant URL with pk argument of the object to be updated, read or deleted. These data-form-url URLs should than
+be set as formURLs for modalForms bound to the buttons.
+-->
+                                                <div class="p-1 menu_projects projects-links">
+                                                    <!-- Show button -->
+                                                    <button type="button"
+                                                            class="bs-modal read btn btn-sm btn-white"
+                                                            data-form-url="{% url 'read' projects.pk %}"
+                                                            title="Project Details">
+                                                        <strong><span
+                                                                class="lni lni-chrome mr-1"></span>Details</strong>
+                                                    </button>
+                                                </div>
+                                                {% if request.user.is_authenticated %}
+                                                <div class="p-1 menu_projects projects-links">
+                                                    <!-- Edit button -->
+                                                    <button type="button"
+                                                            class="bs-modal update btn btn-sm btn-white"
+                                                            data-form-url="{% url 'update' projects.pk %}"
+                                                            title="Edit Project">
+                                                        <strong><span class="lni lni-checkmark-circle mr-1"></span>Edit</strong>
+                                                    </button>
+                                                    <!-- Delete button -->
+                                                    <button type="button"
+                                                            class="bs-modal delete btn btn-sm btn-white"
+                                                            data-form-url="{% url 'delete' projects.pk %}"
+                                                            title="Delete Project">
+                                                        <strong><span
+                                                                class="lni lni-circle-minus mr-1"></span>Delete</strong>
+                                                    </button>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                            <div class="accordion-content"></div>
+                                        </section><!-- Details + Video -->
+                                    </div>
+                                </div>
+                            </div>
+                            {% empty %}
+                            <div class="my-3 h6">No data.</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="d-flex justify-content-end">
+    <a href="#home" class="back-to-top btn-hover" title="Go to Top"><i class="lni lni-chevron-up"></i></a>
+</div>
+
+{% endblock content %}
+
+<!-- Wyswietlanie okien modalnych -->
+{% block extrascripts %}
+
+<script src="{% static 'assets/js/index.js' %}"></script>
+
+<!--
+modalForm
+
+Add script to the template and bind the modalForm to the trigger element.
+Default values for modalID, modalForm etc are used in this example, while formURL is customized.
+-->
+
+<script type="text/javascript">
+      $(function () {
+
+          $("#login-btn").modalForm({
+            formURL: "{% url 'login' %}"
+          });
+
+          $("#signup-btn").modalForm({
+            formURL: "{% url 'signup' %}"
+          });
+
+          $("#create").modalForm({
+            formURL: "{% url 'create' %}",
+            modalID: "#create-modal"
+          });
+
+          var asyncSuccessMessage = [
+            "<div ",
+            "style='position:fixed;top:0;z-index:10000;width:100%;border-radius:0;' ",
+            "class='alert alert-icon alert-success alert-dismissible fade show mb-0' role='alert'>",
+            "Project was updated successfully.",
+            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>",
+            "<span aria-hidden='true'>&times;</span>",
+            "</button>",
+            "</div>",
+            "<script>",
+            "$('.alert').fadeTo(2000, 500).slideUp(500, function () {$('.alert').slideUp(500).remove();});",
+            "<\/script>"
+          ].join("");
+
+          function updateBookModalForm() {
+            $(".update").each(function () {
+              $(this).modalForm({
+                formURL: $(this).data("form-url"),
+                asyncUpdate: true,
+                asyncSettings: {
+                  closeOnSubmit: false,
+                  successMessage: asyncSuccessMessage,
+                  dataUrl: "",
+
+                  dataElementId: "#accordionExample",
+                  dataKey: "accordion",
+                  addModalFormFunction: updateBookModalForm
+                }
+              });
+            });
+          }
+          updateBookModalForm();
+
+          // Read and Delete projects buttons open modal with id="modal"
+          // The formURL is retrieved from the data of the element
+          $(".bs-modal").each(function () {
+              $(this).modalForm({formURL: $(this).data("form-url")});
+          });
+
+          // Hide message
+          $(".alert").fadeTo(2000, 500).slideUp(500, function () {
+              $(".alert").slideUp(500);
+          });
+      });
+</script>
+{% endblock extrascripts %}
+
+</body>
+</html>

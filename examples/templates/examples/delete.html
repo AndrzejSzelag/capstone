@@ -1,0 +1,24 @@
+{% load widget_tweaks %}
+<div class="small">
+    <form method="post" action="">
+        {% csrf_token %}
+
+        <div class="modal-header bg-light">
+            <h4 class="modal-title font-weight-bolder">Delete Project</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="lni lni-cross-circle"></i></span>
+            </button>
+        </div>
+
+        <div class="modal-body bg-light small">
+            <p class="delete-text">Are you sure you want to delete project with title <strong>{{ projects.title }}</strong>?</p>
+        </div>
+
+        <div class="modal-footer bg-light">
+            <button type="submit" id="delete-btn" class="btn btn-block btn-sm btn-danger"><span
+                    class="lni lni-checkmark mr-1"></span>Delete
+            </button>
+        </div>
+
+    </form>
+</div>
