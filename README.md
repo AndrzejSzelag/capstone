@@ -6,11 +6,11 @@ Designing and implementing a web application of your own with Python and JavaScr
 
 ### Specification
 
-Visit https://cs50.harvard.edu/web/2020/projects/final/capstone/
+🚀 https://cs50.harvard.edu/web/2020/projects/final/capstone/
 
 ### Video
 
-Visit https://youtu.be/v4welsQW_2Q
+🚀 https://youtu.be/v4welsQW_2Q
 
 ### Requirements
 
