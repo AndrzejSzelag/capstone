@@ -2,7 +2,7 @@
 
 #### Final Project from Edx | Harvard CS50's Web Programming with Python and JavaScript Course
 
-Designing and implementing a web application of your own with Python and JavaScript.
+✒️ Designing and implementing a web application of your own with Python and JavaScript.
 
 ### Specification
 
