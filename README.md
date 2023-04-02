@@ -44,5 +44,5 @@ After registering and logging in, you can additionally create, edit or delete pr
 * __urls.py__ file with define URLs for the views,
 * __views.py__ with **C R U D** operations, which I based on __generic classes__ instead of functions as in earlier projects.  
 
-👉 __I believe that my final project meets the requirements and is different from the previous ones.
+❤️ __I believe that my final project meets the requirements and is different from the previous ones.
 It is also the most complex and uses many new elements. This project developed me.__ ❤️
