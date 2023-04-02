@@ -21,12 +21,12 @@
 
 ### Description
 
-__EPortfolio__ is a responsive, dynamic and most advanced web application that summarizes all my __CS50's Web Programming with Python and JavaScript__ projects in one place. 
+👉 __EPortfolio__ is a responsive, dynamic and most advanced web application that summarizes all my __CS50's Web Programming with Python and JavaScript__ projects in one place. 
 My application uses the Django plugin to create AJAX-based forms in Bootstrap mode (__django-bootstrap-modal-forms__).
 This application cost me the most work and was the most difficult to do. Anyone can see information about me, the course, and all my course projects. 
 After registering and logging in, you can additionally create, edit or delete projects. The __EPortfolio__ application allows you to see the requirements of individual projects and watch a YouTube video showing them in action.
 
-My application uses new elements like as:
+👉 My application uses new elements like as:
 * __modal forms__ that use AJAX-based in Bootstrap mode,
 * fonts from Google [__Nunito__](https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800) (online),
 * icons for Designers and Developers [__Lineicons 2.0__](https://lineicons.com/) (offline),
@@ -35,7 +35,7 @@ My application uses new elements like as:
 * __animations__ on the sections and pages such as alerts, buttons, avatar etc and __background gradients__ (style.css file),
 * the main element **Accordion** (a Bootstrap component), which contains all information about my projects.
 
-The **ePortfolio** application includes mainly:
+👉 The **ePortfolio** application includes mainly:
 * __static__ folders with fonts, icons, images, css and js files, 
 * __templates__ folder with 9 .html files,
 * __compatibility.py__ file with that display the login form and handle the login action,
@@ -44,5 +44,5 @@ The **ePortfolio** application includes mainly:
 * __urls.py__ file with define URLs for the views,
 * __views.py__ with **C R U D** operations, which I based on __generic classes__ instead of functions as in earlier projects.  
 
-__I believe that my final project meets the requirements and is different from the previous ones.
+👉 __I believe that my final project meets the requirements and is different from the previous ones.
 It is also the most complex and uses many new elements. This project developed me.__
