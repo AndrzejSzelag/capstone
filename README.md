@@ -10,7 +10,7 @@
 
 ### Video
 
-🚀 [Project 5: Final Project](https://youtu.be/v4welsQW_2Q))
+🚀 [Project 5: Final Project](https://youtu.be/v4welsQW_2Q)
 
 ### Requirements
 
