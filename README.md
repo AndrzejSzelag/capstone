@@ -10,7 +10,7 @@
 
 ### Video
 
-🚀 [VIDEO: Capstone application](https://youtu.be/v4welsQW_2Q)
+🚀 [Capstone project on YouTube](https://youtu.be/v4welsQW_2Q)
 
 ### Requirements
 
