@@ -20,7 +20,7 @@
 * django-widget-tweaks 1.4.12
 
 ### How to run? 
-1. Go to the directory which contains "__manage.py__" file. 
+1. Go to the directory which contains "__manage.py__" file
 2. Then type this command: __python manage.py runserver__
 3. In your Web browser use a URL: __http://127.0.0.1:8000/__
 
