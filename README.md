@@ -19,6 +19,10 @@
 * django-bootstrap-modal-forms 2.2.0 
 * django-widget-tweaks 1.4.12
 
+### How to run? 
+1. Go to the directory which contains "__manage.py__" file. 
+2. Then type this command: __python manage.py runserver__
+
 ### Description
 
 👉 __EPortfolio__ is a responsive, dynamic and most advanced web application that summarizes all my __CS50's Web Programming with Python and JavaScript__ projects in one place. 
