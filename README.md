@@ -4,6 +4,14 @@
 
 ✒️ Designing and implementing a web application of your own with Python and JavaScript.
 
+![register.java](register.png "CAPSTONE - Register")
+
+![about.java](about.png "CAPSTONE - About Me")
+
+![projects.java](projects.png "CAPSTONE - Projects")
+
+![details.java](details.png "CAPSTONE - Details")
+
 ### Specification
 
 🚀 https://cs50.harvard.edu/web/2020/projects/final/capstone/
