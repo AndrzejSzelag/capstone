@@ -19,6 +19,8 @@
 * django-bootstrap-modal-forms 2.2.0 
 * django-widget-tweaks 1.4.12
 
+__TIP__: If you have a _requirements.txt_ file type this command: __python -m pip install -r requirements.txt__.
+
 ### How to run? 
 1. Go to the directory which contains "__manage.py__" file
 2. Then type this command: __python manage.py runserver__
