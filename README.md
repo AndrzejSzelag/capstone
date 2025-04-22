@@ -5,6 +5,7 @@
 [<img alt="SQLite3" src="https://img.shields.io/badge/SQLite3-3.45.1-003B57.svg?logo=sqlite&logoColor=white">](https://www.sqlite.org/)
 [<img alt="django-bootstrap-modal-forms" src="https://img.shields.io/badge/django--bootstrap--modal--forms-2.2.0-238636.svg">](https://pypi.org/project/django-bootstrap-modal-forms/)
 [<img alt="django-widget-tweaks" src="https://img.shields.io/badge/django--widget--tweaks-1.4.12-238636.svg">](https://pypi.org/project/django-widget-tweaks/)
+[<img alt="Lineicons" src="https://img.shields.io/badge/Lineicons-2.0-ABB7B7.svg">](https://lineicons.com/)
 [<img alt="Bootstrap" src="https://img.shields.io/badge/Bootstrap-5.0.5-7952B3.svg?logo=bootstrap&logoColor=white">](https://blog.getbootstrap.com/2020/06/16/bootstrap-5-alpha/)
 
 #### 📘 Final Project from Edx | Harvard CS50's Web Programming with Python and JavaScript Course
